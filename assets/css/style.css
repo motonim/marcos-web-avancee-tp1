@@ -25,6 +25,14 @@ tr {
     height: 45px;
 }
 
+i {
+    color: #4646c4;
+}
+
+i:hover {
+    border-bottom: 2px solid #4646c4 ;
+}
+
 .px {
     padding: 0 5vw;
 }
@@ -77,5 +85,86 @@ tr {
     padding-bottom: 10px;
 }
 
+.etudiant__create--text {
+    font-weight: 700;
+    margin-right: 10px;
+}
+
+.etudiant__create--link {
+    text-decoration: none;
+    color: #fff;
+    background: #4646c4;
+    border: 2px solid #4646c4;
+    border-radius: 10px;
+    padding: 5px 10px;
+    transition: color .3s ease,
+                background-color .3s ease;
+}
+
+.etudiant__create--link i {
+    color: #fff;
+    transition: color .3s ease;
+}
+
+.etudiant__create--link:hover {
+    color: #4646c4;
+    background-color: #fff;
+}
+
+.etudiant__create--link:hover i {
+    color: #4646c4;
+}
+
+/* ----------etudiant-create.php---------------- */
+
+.create-etudiant > div + div {
+    margin-top: 50px;
+}
+
+.create-etudiant label {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.create-etudiant input[type=text] {
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    background-color: #dbdbff;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.form__prenom, .form__nom, .form__phone, .form__courriel {
+    width: 45%;
+}
+
+.form__nomComplet {
+    margin-top: 30px;
+}
+
+.form__select {
+    margin-left: 20px;
+    padding: 5px 10px;
+    width: 130px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.form__submit {
+    color: #fff;
+    background: #4646c4;
+    border: 2px solid #4646c4;
+    border-radius: 10px;
+    padding: 10px 20px;
+    transition: color .3s ease,
+                background-color .3s ease;
+    font-size: 20px;
+}
+
+.form__submit:hover {
+    color: #4646c4;
+    background-color: #fff;
+}
 
 /* https://www.elegantthemes.com/layouts/events/design-conference-schedule-page/live-demo */

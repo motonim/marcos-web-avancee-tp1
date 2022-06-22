@@ -26,23 +26,21 @@ class Etudiant extends PDO{
 
     public function select($table, $champOrdre = null, $ordre = null){
         if($champOrdre == null){
-            $sql= "SELECT * FROM $table";
+            $sql= "SELECT idetudiant, concat(etudiant.prenom, ' ', etudiant.nom) AS nomEtudiant, phone, courriel, groupe.nom AS groupe FROM $table LEFT JOIN groupe ON groupe_idgroupe = idgroupe";
         }else{
-            $sql = "SELECT * FROM $table ORDER BY $champOrdre $ordre";
+            $sql = "SELECT idetudiant, concat(etudiant.prenom, ' ', etudiant.nom) AS nomEtudiant, phone, courriel, groupe.nom AS groupe FROM $table LEFT JOIN groupe ON groupe_idgroupe = idgroupe ORDER BY $champOrdre $ordre";
         }
         $query = $this->query($sql);
         return $query->fetchAll();
     }
-
-
     
-    // public function selectId($table, $champ, $id){
-    //     $sql = "SELECT * FROM $table WHERE $champ = :$champ";
-    //     $query = $this->prepare($sql);
-    //     $query->bindValue(":$champ", $id);
-    //     $query->execute();
-    //     return $query->fetch();
-    // }
+    public function selectId($table, $champ, $id){
+        $sql = "SELECT * FROM $table WHERE $champ = :$champ";
+        $query = $this->prepare($sql);
+        $query->bindValue(":$champ", $id);
+        $query->execute();
+        return $query->fetch();
+    }
 
     public function update($table, $data, $champ, $id){
         $champRequete = null;

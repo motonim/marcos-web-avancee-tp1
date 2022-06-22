@@ -1,14 +1,10 @@
 <?php
 require_once "class/Etudiant.php";
-require_once "class/Groupe.php";
 require_once "class/Enseignant.php";
 require_once "class/Cours.php";
 
 $etudiant = new Etudiant;
 $selectStudent = $etudiant->select("etudiant");
-
-$groupe = new Groupe;
-$selectGroupe = $groupe->select("groupe");
 
 $enseignant = new Enseignant;
 $selectTeacher = $enseignant->select("enseignant");
@@ -29,7 +25,7 @@ $selectCours = $cours->select("cours");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Etudiant List</title>
+    <title>Liste</title>
 </head>
 <body>
     <header class="header">
@@ -43,14 +39,17 @@ $selectCours = $cours->select("cours");
             </div>
         </div>
     </header>
+
     <div class="list etudiant__list">
         <div class="px">
             <div class="container">
-                <h1 class="list__title">Etudiant</h1>
+                <div class="list__title flex">
+                    <h1>Etudiant</h1>
+                    <a href="etudiant-create.php" class="etudiant__create--link"><span class="etudiant__create--text">CREATE</span><i class="fa-solid fa-user-plus"></i></a>
+                </div>
                 <table>
                     <thead>
                         <tr>
-                            <th>Prénom</th>
                             <th>Nom</th>
                             <th>Phone</th>
                             <th>Courriel</th>    
@@ -64,11 +63,10 @@ $selectCours = $cours->select("cours");
                     foreach($selectStudent as $row){
                 ?>
                         <tr>
-                            <td><?php echo $row["prenom"]; ?></td>
-                            <td><?php echo $row["nom"]; ?></td>
+                            <td><?php echo $row["nomEtudiant"]; ?></td>
                             <td><?php echo $row["phone"]; ?></td>
                             <td><?php echo $row["courriel"]; ?></td>
-                            <td><?php echo $row["groupe_idgroupe"]; ?></td>
+                            <td><?php echo $row["groupe"]; ?></td>
                             <td><a href="client-edit.php?idetudiant=<?php echo $row["idetudiant"];?>"><i class="fa-solid fa-pen-to-square"></i></a></td>
                             <td><a href="client-delete.php?idetudiant=<?php echo $row["idetudiant"];?>"><i class="fa-solid fa-trash"></i></a></td>
                         </tr>
@@ -77,51 +75,9 @@ $selectCours = $cours->select("cours");
                 ?>       
                     </tbody>
                 </table>
-
-                <a href="client.php">CREATE<i class="fa-solid fa-user-plus"></i></a>
             </div>
         </div>
     </div>
-
-    <div class="list groupe__list">
-        <div class="px">
-            <div class="container">
-                <h1 class="list__title">Groupe</h1>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Prénom</th>
-                            <th>Nom</th>
-                            <th>Phone</th>
-                            <th>Courriel</th>    
-                            <th>Groupe</th>    
-                            <th>Edit</th>    
-                            <th>Delete</th>    
-                        </tr>
-                    </thead>
-                    <tbody>
-                <?php
-                    foreach($selectGroupe as $row){
-                ?>
-                        <tr>
-                            <td><?php echo $row["prenom"]; ?></td>
-                            <td><?php echo $row["nom"]; ?></td>
-                            <td><?php echo $row["phone"]; ?></td>
-                            <td><?php echo $row["courriel"]; ?></td>
-                            <td><?php echo $row["groupe_idgroupe"]; ?></td>
-                            <td><a href="client-edit.php?idetudiant=<?php echo $row["idetudiant"];?>"><i class="fa-solid fa-pen-to-square"></i></a></td>
-                            <td><a href="client-delete.php?idetudiant=<?php echo $row["idetudiant"];?>"><i class="fa-solid fa-trash"></i></a></td>
-                        </tr>
-                <?php
-                    }
-                ?>       
-                    </tbody>
-                </table>
-
-                <a href="client.php">CREATE<i class="fa-solid fa-user-plus"></i></a>
-            </div>
-        </div>
-    </div>                
 
     <div class="list enseignant__list">
         <div class="px">

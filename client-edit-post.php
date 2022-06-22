@@ -5,6 +5,6 @@ $etudiant = new Etudiant;
 
 $update = $etudiant->update("etudiant", $_POST, "idetudiant", $_POST["idetudiant"]);
 
-header("Location: client-list.php");
+header("Location: index.php");
 
 ?>
