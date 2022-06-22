@@ -8,7 +8,7 @@ $etudiant = new Etudiant;
 $selectStudent = $etudiant->select("etudiant");
 
 $groupe = new Groupe;
-$selectStudent = $groupe->select("groupe");
+$selectGroupe = $groupe->select("groupe");
 
 $enseignant = new Enseignant;
 $selectTeacher = $enseignant->select("enseignant");
@@ -82,6 +82,46 @@ $selectCours = $cours->select("cours");
             </div>
         </div>
     </div>
+
+    <div class="list groupe__list">
+        <div class="px">
+            <div class="container">
+                <h1 class="list__title">Groupe</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Prénom</th>
+                            <th>Nom</th>
+                            <th>Phone</th>
+                            <th>Courriel</th>    
+                            <th>Groupe</th>    
+                            <th>Edit</th>    
+                            <th>Delete</th>    
+                        </tr>
+                    </thead>
+                    <tbody>
+                <?php
+                    foreach($selectGroupe as $row){
+                ?>
+                        <tr>
+                            <td><?php echo $row["prenom"]; ?></td>
+                            <td><?php echo $row["nom"]; ?></td>
+                            <td><?php echo $row["phone"]; ?></td>
+                            <td><?php echo $row["courriel"]; ?></td>
+                            <td><?php echo $row["groupe_idgroupe"]; ?></td>
+                            <td><a href="client-edit.php?idetudiant=<?php echo $row["idetudiant"];?>"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                            <td><a href="client-delete.php?idetudiant=<?php echo $row["idetudiant"];?>"><i class="fa-solid fa-trash"></i></a></td>
+                        </tr>
+                <?php
+                    }
+                ?>       
+                    </tbody>
+                </table>
+
+                <a href="client.php">CREATE<i class="fa-solid fa-user-plus"></i></a>
+            </div>
+        </div>
+    </div>                
 
     <div class="list enseignant__list">
         <div class="px">
