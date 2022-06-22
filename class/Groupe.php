@@ -5,7 +5,7 @@ class Groupe extends PDO
 
     public function __construct()
     {
-        parent::__construct("mysql:host=localhost;dbname=online-course", "root", "root");
+        parent::__construct("mysql:host=localhost;dbname=online-course;charset=utf8", "root", "root");
     }
 
     public function insert($table, $data)
