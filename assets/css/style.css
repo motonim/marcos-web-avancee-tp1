@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    font-family: Open Sans,Arial,sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+table {
+    width: 100%;
+}
+
+tbody {
+    text-align: center;
+}
+
+tr {
+    height: 45px;
+}
+
+.px {
+    padding: 0 5vw;
+}
+
+.container {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list {
+    padding: 40px 0;
+}
+
+.header{
+    background-image:linear-gradient(180deg,#ffffff 0%,#e7edf9 100%);
+    padding: 70px;
+
+}
+
+.header h1 {
+    font-family: 'Merriweather',Georgia,"Times New Roman",serif;
+    font-weight: 700;
+    font-size: 46px;
+    line-height: 1.5;
+}
+
+.header h3 {
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.header__text{
+    width: 50%;
+}
+
+.header__img {
+    width: 50%;
+}
+
+.list__title {
+    border-bottom: 3px solid #4646c4;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+
+/* https://www.elegantthemes.com/layouts/events/design-conference-schedule-page/live-demo */
