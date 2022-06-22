@@ -19,6 +19,7 @@ $selectCours = $cours->select("cours");
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,6 +28,7 @@ $selectCours = $cours->select("cours");
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Liste</title>
 </head>
+
 <body>
     <header class="header">
         <div class="container flex">
@@ -52,27 +54,27 @@ $selectCours = $cours->select("cours");
                         <tr>
                             <th>Nom</th>
                             <th>Phone</th>
-                            <th>Courriel</th>    
-                            <th>Groupe</th>    
-                            <th>Edit</th>    
-                            <th>Delete</th>    
+                            <th>Courriel</th>
+                            <th>Groupe</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
-                <?php
-                    foreach($selectStudent as $row){
-                ?>
-                        <tr>
-                            <td><?php echo $row["nomEtudiant"]; ?></td>
-                            <td><?php echo $row["phone"]; ?></td>
-                            <td><?php echo $row["courriel"]; ?></td>
-                            <td><?php echo $row["groupe"]; ?></td>
-                            <td><a href="client-edit.php?idetudiant=<?php echo $row["idetudiant"];?>"><i class="fa-solid fa-pen-to-square"></i></a></td>
-                            <td><a href="client-delete.php?idetudiant=<?php echo $row["idetudiant"];?>"><i class="fa-solid fa-trash"></i></a></td>
-                        </tr>
-                <?php
-                    }
-                ?>       
+                        <?php
+                        foreach ($selectStudent as $row) {
+                        ?>
+                            <tr>
+                                <td><?php echo $row["nomEtudiant"]; ?></td>
+                                <td><?php echo $row["phone"]; ?></td>
+                                <td><?php echo $row["courriel"]; ?></td>
+                                <td><?php echo $row["groupe"]; ?></td>
+                                <td><a href="etudiant-edit.php?idetudiant=<?php echo $row["idetudiant"]; ?>"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                                <td><a href="etudiant-delete.php?idetudiant=<?php echo $row["idetudiant"]; ?>"><i class="fa-solid fa-trash"></i></a></td>
+                            </tr>
+                        <?php
+                        }
+                        ?>
                     </tbody>
                 </table>
             </div>
@@ -89,26 +91,26 @@ $selectCours = $cours->select("cours");
                             <th>Prénom</th>
                             <th>Nom</th>
                             <th>Phone</th>
-                            <th>Courriel</th>    
-                            <th>Edit</th>    
-                            <th>Delete</th>    
+                            <th>Courriel</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
-                <?php
-                    foreach($selectTeacher as $row){
-                ?>
-                        <tr>
-                            <td><?php echo $row["prenom"]; ?></td>
-                            <td><?php echo $row["nom"]; ?></td>
-                            <td><?php echo $row["phone"]; ?></td>
-                            <td><?php echo $row["courriel"]; ?></td>
-                            <td><a href="client-edit.php?idenseignant=<?php echo $row["idenseignant"];?>"><i class="fa-solid fa-pen-to-square"></i></a></td>
-                            <td><a href="client-delete.php?idenseignant=<?php echo $row["idenseignant"];?>"><i class="fa-solid fa-trash"></i></a></td>
-                        </tr>
-                <?php
-                    }
-                ?>       
+                        <?php
+                        foreach ($selectTeacher as $row) {
+                        ?>
+                            <tr>
+                                <td><?php echo $row["prenom"]; ?></td>
+                                <td><?php echo $row["nom"]; ?></td>
+                                <td><?php echo $row["phone"]; ?></td>
+                                <td><?php echo $row["courriel"]; ?></td>
+                                <td><a href="client-edit.php?idenseignant=<?php echo $row["idenseignant"]; ?>"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                                <td><a href="client-delete.php?idenseignant=<?php echo $row["idenseignant"]; ?>"><i class="fa-solid fa-trash"></i></a></td>
+                            </tr>
+                        <?php
+                        }
+                        ?>
                     </tbody>
                 </table>
             </div>
@@ -130,23 +132,24 @@ $selectCours = $cours->select("cours");
                         </tr>
                     </thead>
                     <tbody>
-                <?php
-                    foreach($selectCours as $row){
-                ?>
-                        <tr>
-                            <td><?php echo $row["titre"]; ?></td>
-                            <td><?php echo $row["description"]; ?></td>
-                            <td><?php echo $row["enseignant"]; ?></td>
-                            <!-- <td><a href="client-edit.php?idcours=<?php echo $row["idcours"];?>"><i class="fa-solid fa-pen-to-square"></i></a></td> -->
-                            <!-- <td><a href="client-delete.php?idcours=<?php echo $row["idcours"];?>"><i class="fa-solid fa-trash"></i></a></td> -->
-                        </tr>
-                <?php
-                    }
-                ?>       
+                        <?php
+                        foreach ($selectCours as $row) {
+                        ?>
+                            <tr>
+                                <td><?php echo $row["titre"]; ?></td>
+                                <td><?php echo $row["description"]; ?></td>
+                                <td><?php echo $row["enseignant"]; ?></td>
+                                <!-- <td><a href="client-edit.php?idcours=<?php echo $row["idcours"]; ?>"><i class="fa-solid fa-pen-to-square"></i></a></td> -->
+                                <!-- <td><a href="client-delete.php?idcours=<?php echo $row["idcours"]; ?>"><i class="fa-solid fa-trash"></i></a></td> -->
+                            </tr>
+                        <?php
+                        }
+                        ?>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 </body>
+
 </html>

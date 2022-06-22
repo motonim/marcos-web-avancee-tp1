@@ -1,9 +1,15 @@
 <?php
-
+require_once "class/Etudiant.php";
 require_once "class/Groupe.php";
+
+$etudiant = new Etudiant;
+$resultat = $etudiant->selectId("etudiant", "idetudiant", $_GET["idetudiant"]);
 $groupe = new Groupe;
 $select = $groupe->select("groupe");
 
+foreach ($resultat as $key => $value) {
+    $$key = $value;
+}
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +21,7 @@ $select = $groupe->select("groupe");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Etudiant - create</title>
+    <title>Etudiant - Edit</title>
 </head>
 
 <body>
@@ -34,29 +40,31 @@ $select = $groupe->select("groupe");
     <div class="list">
         <div class="px">
             <div class="container">
-                <h1 class="list__title">Etudiant</h1>
-                <form action="etudiant-post.php" method="post" class="create-etudiant">
+                <h1 class="list__title">Etudiant - Edit</h1>
+                <form action="etudiant-edit-post.php" method="post" class="create-etudiant">
+                    <input type="hidden" value="<?php echo $idetudiant; ?>" name="idetudiant">
+
                     <div class="form__nomComplet flex">
                         <div class="form__prenom">
                             <label for="prenom">Prénom</label>
-                            <input type="text" id="prenom" name="prenom" maxlenght="30">
+                            <input type="text" id="prenom" name="prenom" maxlenght="30" value="<?php echo $prenom; ?>">
                         </div>
 
                         <div class="form__nom">
                             <label for="nom">Nom</label>
-                            <input type="text" id="nom" name="nom" maxlenght="30">
+                            <input type="text" id="nom" name="nom" maxlenght="30" value="<?php echo $nom; ?>">
                         </div>
                     </div>
 
                     <div class="form__contact flex">
                         <div class="form__phone">
                             <label for="phone">Phone</label>
-                            <input type="text" id="phone" name="phone" maxlenght="20">
+                            <input type="text" id="phone" name="phone" maxlenght="20" value="<?php echo $phone; ?>">
                         </div>
 
                         <div class="form__courriel">
                             <label for="courriel">Courriel</label>
-                            <input type="text" id="courriel" name="courriel" maxlenght="100">
+                            <input type="text" id="courriel" name="courriel" maxlenght="100" value="<?php echo $courriel; ?>">
                         </div>
                     </div>
 
@@ -74,12 +82,16 @@ $select = $groupe->select("groupe");
 
                         <div>
                             <input class="form__submit" type="submit">
+                            <a href="etudiant-delete.php?idetudiant=<?php echo $idetudiant; ?>"><i class="fa-solid fa-trash"></i></a>
+
                         </div>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+
+
 </body>
 
 </html>
