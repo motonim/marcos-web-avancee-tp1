@@ -38,8 +38,6 @@ class Cours extends PDO
         return $query->fetchAll();
     }
 
-
-    // SELECT * FROM cours LEFT JOIN cours_has_groupe ON idcours = cours_idcours LEFT JOIN groupe ON groupe_idgroupe = idgroupe
     public function selectId($table, $champ, $id)
     {
         $sql = "SELECT * FROM $table WHERE $champ = :$champ";

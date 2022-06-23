@@ -79,15 +79,4 @@ class Enseignant extends PDO
         }
     }
 
-    /*    public function delete($table, $champ, $id, $url){
-        $sql = "DELETE FROM $table WHERE $champ = :$champ";
-        $query = $this->prepare($sql);
-        $query->bindValue(":$champ", $id);
-        if(!$query->execute()){
-            print_r($query->errorInfo());
-        }else{
-            header("Location: $url");
-        }
-    }
-*/
 }

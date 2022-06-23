@@ -29,20 +29,19 @@ class Groupe extends PDO
 
     public function select($table, $champOrdre = null, $ordre = null)
     {
-        $sql = "SELECT * FROM $table";
-        $query = $this->query($sql);
-        return $query->fetchAll();
-
-        // if($champOrdre == null){
-        //     $sql= "SELECT * FROM $table";
-        // }else{
-        //     $sql = "SELECT * FROM $table ORDER BY $champOrdre $ordre";
-        // }
+        // $sql = "SELECT * FROM $table";
         // $query = $this->query($sql);
         // return $query->fetchAll();
+
+        if($champOrdre == null){
+            $sql= "SELECT * FROM $table";
+        }else{
+            $sql = "SELECT * FROM $table ORDER BY $champOrdre $ordre";
+        }
+        $query = $this->query($sql);
+        return $query->fetchAll();
     }
 
-    // SELECT * FROM cours LEFT JOIN cours_has_groupe ON idcours = cours_idcours LEFT JOIN groupe ON groupe_idgroupe = idgroupe
 
     public function selectId($table, $champ, $id)
     {

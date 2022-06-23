@@ -27,7 +27,7 @@
         <div class="px">
             <div class="container">
                 <h1 class="list__title">Enseignant</h1>
-                <form action="enseignant-post.php" method="post" class="create-etudiant">
+                <form action="enseignant-post.php" method="post" class="form__create">
                     <div class="form__nomComplet flex">
                         <div class="form__prenom">
                             <label for="prenom">Prénom</label>
