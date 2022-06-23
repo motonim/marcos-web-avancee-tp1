@@ -5,7 +5,7 @@ class Cours extends PDO
 
     public function __construct()
     {
-        parent::__construct("mysql:host=localhost;dbname=online-course;charset=utf8", "root", "root");
+        parent::__construct("mysql:host=localhost;dbname=online-course;charset=utf8", "root", "");
     }
 
     public function insert($table, $data)
@@ -30,15 +30,16 @@ class Cours extends PDO
     public function select($table, $champOrdre = null, $ordre = null)
     {
         if ($champOrdre == null) {
-            $sql = "SELECT titre, description, concat(enseignant.prenom, ' ', enseignant.nom) AS enseignant FROM $table LEFT JOIN enseignant ON enseignant_idenseignant = idenseignant";
+            $sql = "SELECT titre, description, concat(enseignant.prenom, ' ', enseignant.nom) AS enseignant, groupe.nom AS groupe FROM $table LEFT JOIN enseignant ON enseignant_idenseignant = idenseignant LEFT JOIN cours_has_groupe ON idcours = cours_idcours LEFT JOIN groupe ON groupe_idgroupe = idgroupe";
         } else {
-            $sql = "SELECT titre, description, concat(enseignant.prenom, ' ', enseignant.nom) AS enseignant FROM $table LEFT JOIN enseignant ON enseignant_idenseignant = idenseignant ORDER BY $champOrdre $ordre";
+            $sql = "SELECT titre, description, concat(enseignant.prenom, ' ', enseignant.nom) AS enseignant, groupe.nom AS groupe FROM $table LEFT JOIN enseignant ON enseignant_idenseignant = idenseignant LEFT JOIN cours_has_groupe ON idcours = cours_idcours LEFT JOIN groupe ON groupe_idgroupe = idgroupe ORDER BY $champOrdre $ordre";
         }
         $query = $this->query($sql);
         return $query->fetchAll();
     }
 
 
+    // SELECT * FROM cours LEFT JOIN cours_has_groupe ON idcours = cours_idcours LEFT JOIN groupe ON groupe_idgroupe = idgroupe
     public function selectId($table, $champ, $id)
     {
         $sql = "SELECT * FROM $table WHERE $champ = :$champ";

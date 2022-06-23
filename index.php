@@ -4,18 +4,14 @@ require_once "class/Enseignant.php";
 require_once "class/Cours.php";
 
 $etudiant = new Etudiant;
-$selectStudent = $etudiant->select("etudiant");
+$selectStudent = $etudiant->select("etudiant", "groupe", "ASC");
 
 $enseignant = new Enseignant;
 $selectTeacher = $enseignant->select("enseignant");
 
 $cours = new Cours;
-$selectCours = $cours->select("cours");
+$selectCours = $cours->select("cours", "titre");
 ?>
-
-<!-- what do I have to do with the table coursHasGroupe? -->
-<!-- what do I have to do with special characters? -->
-<!-- Am I going in the right direction? -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -84,7 +80,10 @@ $selectCours = $cours->select("cours");
     <div class="list enseignant__list">
         <div class="px">
             <div class="container">
-                <h1 class="list__title">Enseignant</h1>
+                <div class="list__title flex">
+                    <h1>Enseignant</h1>
+                    <a href="enseignant-create.php" class="etudiant__create--link"><span class="etudiant__create--text">CREATE</span><i class="fa-solid fa-user-plus"></i></a>
+                </div>
                 <table>
                     <thead>
                         <tr>
@@ -105,8 +104,8 @@ $selectCours = $cours->select("cours");
                                 <td><?php echo $row["nom"]; ?></td>
                                 <td><?php echo $row["phone"]; ?></td>
                                 <td><?php echo $row["courriel"]; ?></td>
-                                <td><a href="client-edit.php?idenseignant=<?php echo $row["idenseignant"]; ?>"><i class="fa-solid fa-pen-to-square"></i></a></td>
-                                <td><a href="client-delete.php?idenseignant=<?php echo $row["idenseignant"]; ?>"><i class="fa-solid fa-trash"></i></a></td>
+                                <td><a href="enseignant-edit.php?idenseignant=<?php echo $row["idenseignant"]; ?>"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                                <td><a href="enseignant-delete.php?idenseignant=<?php echo $row["idenseignant"]; ?>"><i class="fa-solid fa-trash"></i></a></td>
                             </tr>
                         <?php
                         }
@@ -124,11 +123,10 @@ $selectCours = $cours->select("cours");
                 <table>
                     <thead>
                         <tr>
-                            <th>Titre</th>
-                            <th>Description</th>
+                            <th class="cours__title">Titre</th>
+                            <th class="cours__desc">Description</th>
                             <th>Enseignant</th>
-                            <!-- <th>Edit</th>
-                            <th>Delete</th> -->
+                            <th>Groupe</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -136,11 +134,10 @@ $selectCours = $cours->select("cours");
                         foreach ($selectCours as $row) {
                         ?>
                             <tr>
-                                <td><?php echo $row["titre"]; ?></td>
-                                <td><?php echo $row["description"]; ?></td>
+                                <td class="cours__title"><?php echo $row["titre"]; ?></td>
+                                <td class="cours__desc"><?php echo $row["description"]; ?></td>
                                 <td><?php echo $row["enseignant"]; ?></td>
-                                <!-- <td><a href="client-edit.php?idcours=<?php echo $row["idcours"]; ?>"><i class="fa-solid fa-pen-to-square"></i></a></td> -->
-                                <!-- <td><a href="client-delete.php?idcours=<?php echo $row["idcours"]; ?>"><i class="fa-solid fa-trash"></i></a></td> -->
+                                <td><?php echo $row["groupe"]; ?></td>
                             </tr>
                         <?php
                         }

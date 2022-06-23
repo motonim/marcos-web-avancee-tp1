@@ -5,7 +5,7 @@ class Groupe extends PDO
 
     public function __construct()
     {
-        parent::__construct("mysql:host=localhost;dbname=online-course;charset=utf8", "root", "root");
+        parent::__construct("mysql:host=localhost;dbname=online-course", "root", "");
     }
 
     public function insert($table, $data)
@@ -41,6 +41,8 @@ class Groupe extends PDO
         // $query = $this->query($sql);
         // return $query->fetchAll();
     }
+
+    // SELECT * FROM cours LEFT JOIN cours_has_groupe ON idcours = cours_idcours LEFT JOIN groupe ON groupe_idgroupe = idgroupe
 
     public function selectId($table, $champ, $id)
     {

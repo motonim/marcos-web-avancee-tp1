@@ -41,7 +41,7 @@ foreach ($resultat as $key => $value) {
         <div class="px">
             <div class="container">
                 <h1 class="list__title">Etudiant - Edit</h1>
-                <form action="etudiant-edit-post.php" method="post" class="create-etudiant">
+                <form action="etudiant-edit-post.php" method="post" class="form__create">
                     <input type="hidden" value="<?php echo $idetudiant; ?>" name="idetudiant">
 
                     <div class="form__nomComplet flex">
@@ -80,10 +80,9 @@ foreach ($resultat as $key => $value) {
                             </select>
                         </div>
 
-                        <div>
+                        <div class="form__btn">
                             <input class="form__submit" type="submit">
-                            <a href="etudiant-delete.php?idetudiant=<?php echo $idetudiant; ?>"><i class="fa-solid fa-trash"></i></a>
-
+                            <a href="etudiant-delete.php?idetudiant=<?php echo $idetudiant; ?>" class="delete"><i class="fa-solid fa-trash"></i></a>
                         </div>
                     </div>
                 </form>

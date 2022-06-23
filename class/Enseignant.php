@@ -5,7 +5,7 @@ class Enseignant extends PDO
 
     public function __construct()
     {
-        parent::__construct("mysql:host=localhost;dbname=online-course;charset=utf8", "root", "root");
+        parent::__construct("mysql:host=localhost;dbname=online-course;charset=utf8", "root", "");
     }
 
     public function insert($table, $data)
@@ -69,7 +69,7 @@ class Enseignant extends PDO
 
     public function delete($table, $id, $url)
     {
-        $sql = "DELETE FROM $table WHERE id = :id";
+        $sql = "DELETE FROM $table WHERE idenseignant = :id";
         $query = $this->prepare($sql);
         $query->bindValue(":id", $id);
         if (!$query->execute()) {

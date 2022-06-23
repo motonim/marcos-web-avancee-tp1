@@ -17,12 +17,25 @@ table {
     width: 100%;
 }
 
+thead tr {
+    background-color: #e2e2fa9d;
+
+}
+
 tbody {
     text-align: center;
 }
 
-tr {
-    height: 45px;
+tbody tr td{
+    box-shadow: rgba(0, 0, 0, 0.05) 2.4px 2.4px 3.2px;
+}
+
+th, tr {
+    height: 50px;
+}
+
+td {
+    padding: 20px;
 }
 
 i {
@@ -55,13 +68,12 @@ i:hover {
 .header{
     background-image:linear-gradient(180deg,#ffffff 0%,#e7edf9 100%);
     padding: 0 70px;
-
 }
 
 .header h1 {
     font-family: 'Merriweather',Georgia,"Times New Roman",serif;
     font-weight: 700;
-    font-size: 4vw;
+    font-size: 40px;
     line-height: 1.5;
 }
 
@@ -81,7 +93,7 @@ i:hover {
 
 .list__title {
     border-bottom: 3px solid #4646c4;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     padding-bottom: 10px;
 }
 
@@ -115,23 +127,36 @@ i:hover {
     color: #4646c4;
 }
 
-/* ----------etudiant-create.php---------------- */
+.cours__desc {
+    max-width: 900px;
+    text-align: left;
+    line-height: 1.5;
+}
 
-.create-etudiant > div + div {
+th.cours__desc {
+    text-align: center;
+}
+
+.cours__title {
+    width: 150px;
+    line-height: 1.5;
+}
+
+.form__create > div + div {
     margin-top: 50px;
 }
 
-.create-etudiant label {
+.form__create label {
     font-size: 20px;
     font-weight: 500;
 }
 
-.create-etudiant input[type=text] {
+.form__create input[type=text] {
     width: 100%;
     border-radius: 10px;
     border: none;
-    background-color: #dbdbff;
-    padding: 10px;
+    background-color: #e2e2fa9d;
+    padding: 15px;
     margin-top: 10px;
 }
 
@@ -165,6 +190,16 @@ i:hover {
 .form__submit:hover {
     color: #4646c4;
     background-color: #fff;
+}
+
+.form__btn {
+    display: flex;
+    align-items: center;
+}
+
+.delete {
+    font-size: 25px;
+    margin-left: 20px;
 }
 
 /* https://www.elegantthemes.com/layouts/events/design-conference-schedule-page/live-demo */
